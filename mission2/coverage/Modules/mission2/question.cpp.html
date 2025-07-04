@@ -1,0 +1,245 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+        <meta charset="utf-8"/>
+	    <title>question.cpp</title>
+	    <link href="../../third-party/google-code-prettify/prettify-CppCoverage.css" type="text/css" rel="stylesheet" />
+	    <script type="text/javascript" src="../../third-party/google-code-prettify/prettify.js"></script>
+	</head>
+    <body onload="prettyPrint()">
+        <h4></h4>
+        <pre class="prettyprint lang-cpp linenums">
+#include "headers.h"
+#include "car.cpp"
+
+class Question {
+public:
+    void getAndParseCommand()
+<span style = "background-color:#dfd">    {</span>
+#ifdef _DEBUG
+<span style = "background-color:#dfd">        buf[0] = 1;
+        buf[1] = '\r';
+        buf[2] = '\n';</span>
+#else
+        fgets(buf, sizeof(buf), stdin);
+#endif
+<span style = "background-color:#dfd">        char* context = nullptr;
+        strtok_s(buf, "\r", &amp;context);
+        strtok_s(buf, "\n", &amp;context);
+    }</span>
+
+    bool isExitCommand()
+<span style = "background-color:#dfd">    {
+        if (strcmp(buf, "exit"))
+            return false;
+        printf("¹ÙÀÌ¹ÙÀÌ\n");
+        return true;
+    }</span>
+
+    bool getAnwerAndCheckIsValid()
+<span style = "background-color:#dfd">    {</span>
+        char* checkNumber;
+<span style = "background-color:#dfd">        answer = strtol(buf, &amp;checkNumber, 10);</span>
+
+<span style = "background-color:#dfd">        if (*checkNumber == '\0')
+            return true;</span>
+
+<span style = "background-color:#dfd">        printf("ERROR :: ¼ýÀÚ¸¸ ÀÔ·Â °¡´É\n");
+        delay(800);
+        return false;
+    }</span>
+
+<span style = "background-color:#dfd">    bool isValidStepAndAnswer() {
+        if (step == CarType_Q &amp;&amp; !(answer &gt;= 1 &amp;&amp; answer &lt;= 3))</span>
+        {
+<span style = "background-color:#dfd">            printf("ERROR :: Â÷·® Å¸ÀÔÀº 1 ~ 3 ¹üÀ§¸¸ ¼±ÅÃ °¡´É\n");
+            delay(800);
+            return false;</span>
+        }
+
+<span style = "background-color:#dfd">        if (step == Engine_Q &amp;&amp; !(answer &gt;= 0 &amp;&amp; answer &lt;= 4))</span>
+        {
+<span style = "background-color:#dfd">            printf("ERROR :: ¿£ÁøÀº 1 ~ 4 ¹üÀ§¸¸ ¼±ÅÃ °¡´É\n");
+            delay(800);
+            return false;</span>
+        }
+
+<span style = "background-color:#dfd">        if (step == brakeSystem_Q &amp;&amp; !(answer &gt;= 0 &amp;&amp; answer &lt;= 3))</span>
+        {
+<span style = "background-color:#dfd">            printf("ERROR :: Á¦µ¿ÀåÄ¡´Â 1 ~ 3 ¹üÀ§¸¸ ¼±ÅÃ °¡´É\n");
+            delay(800);
+            return false;</span>
+        }
+
+<span style = "background-color:#dfd">        if (step == SteeringSystem_Q &amp;&amp; !(answer &gt;= 0 &amp;&amp; answer &lt;= 2))</span>
+        {
+<span style = "background-color:#dfd">            printf("ERROR :: Á¶ÇâÀåÄ¡´Â 1 ~ 2 ¹üÀ§¸¸ ¼±ÅÃ °¡´É\n");
+            delay(800);
+            return false;</span>
+        }
+
+<span style = "background-color:#dfd">        if (step == Run_Test &amp;&amp; !(answer &gt;= 0 &amp;&amp; answer &lt;= 2))</span>
+        {
+<span style = "background-color:#dfd">            printf("ERROR :: Run ¶Ç´Â Test Áß ÇÏ³ª¸¦ ¼±ÅÃ ÇÊ¿ä\n");
+            delay(800);
+            return false;</span>
+        }
+<span style = "background-color:#dfd">        return true;
+    }</span>
+
+    void updateStepAfterRun()
+<span style = "background-color:#dfd">    {
+        if (answer == 0 &amp;&amp; step == Run_Test)</span>
+        {
+<span style = "background-color:#dfd">            step = CarType_Q;
+            return;</span>
+        }
+
+<span style = "background-color:#dfd">        if (answer == 0 &amp;&amp; step &gt;= 1)</span>
+        {
+<span style = "background-color:#dfd">            step -= 1;
+            return;</span>
+        }
+
+<span style = "background-color:#dfd">        if (step == CarType_Q)</span>
+        {
+<span style = "background-color:#dfd">            selectCarType(answer);
+            updateStepAfterDelay(step);
+        }
+        else if (step == Engine_Q)</span>
+        {
+<span style = "background-color:#dfd">            selectEngine(answer);
+            updateStepAfterDelay(step);
+        }
+        else if (step == brakeSystem_Q)</span>
+        {
+<span style = "background-color:#dfd">            selectbrakeSystem(answer);
+            updateStepAfterDelay(step);
+        }
+        else if (step == SteeringSystem_Q)</span>
+        {
+<span style = "background-color:#dfd">            selectSteeringSystem(answer);
+            updateStepAfterDelay(step);
+        }
+        else if (step == Run_Test &amp;&amp; answer == 1)</span>
+        {
+<span style = "background-color:#dfd">            runProducedCar();
+            delay(2000);
+        }
+        else if (step == Run_Test &amp;&amp; answer == 2)</span>
+        {
+<span style = "background-color:#dfd">            printf("Test...\n");
+            delay(1500);
+            testProducedCar();
+            delay(2000);</span>
+        }
+<span style = "background-color:#dfd">    }</span>
+
+    int getStep() 
+<span style = "background-color:#dfd">    {
+        return step;
+    }</span>
+
+    char buf[100];
+    int step = CarType_Q;
+    int answer;
+    class ICar* car;
+
+    void delay(int ms)
+<span style = "background-color:#dfd">    {
+        volatile int sum = 0;
+        for (int i = 0; i &lt; 1000; i++)</span>
+        {
+<span style = "background-color:#dfd">            for (int j = 0; j &lt; 1000; j++)</span>
+            {
+<span style = "background-color:#dfd">                for (int t = 0; t &lt; ms; t++)</span>
+                {
+<span style = "background-color:#dfd">                    sum++;
+                }
+            }
+        }
+    }</span>
+
+<span style = "background-color:#dfd">    void updateStepAfterDelay(int&amp; step) {
+        delay(800);
+        step++;
+    }</span>
+
+    void selectCarType(int answer)
+<span style = "background-color:#dfd">    {</span>
+        CarFactory carFactory;
+<span style = "background-color:#dfd">        car = carFactory.createCar(answer);
+        car-&gt;printLog();
+    }</span>
+
+    void selectEngine(int answer)
+<span style = "background-color:#dfd">    {</span>
+        EngineFactory engineFactory;
+<span style = "background-color:#dfd">        car-&gt;setEngine(engineFactory.createEngine(answer));
+        car-&gt;mEngine-&gt;printLog();
+    }</span>
+
+    void selectbrakeSystem(int answer)
+<span style = "background-color:#dfd">    {</span>
+        BrakeFactory brakeFactory;
+<span style = "background-color:#dfd">        car-&gt;setBrake(brakeFactory.createBrake(answer));
+        car-&gt;mBrake-&gt;printLog();
+    }</span>
+
+    void selectSteeringSystem(int answer)
+<span style = "background-color:#dfd">    {</span>
+        SteeringFactory steeringFactory;
+<span style = "background-color:#dfd">        car-&gt;setSteering(steeringFactory.createSteering(answer));
+        car-&gt;mSteering-&gt;printLog();
+    }</span>
+
+    int isValidCheck()
+<span style = "background-color:#dfd">    {
+        return car-&gt;isValid(0);
+    }</span>
+
+    void runProducedCar()
+<span style = "background-color:#dfd">    {
+        if (isValidCheck() == false)</span>
+        {
+<span style = "background-color:#dfd">            printf("ÀÚµ¿Â÷°¡ µ¿ÀÛµÇÁö ¾Ê½À´Ï´Ù\n");
+        }</span>
+        else
+        {
+<span style = "background-color:#dfd">            if (car-&gt;mEngine-&gt;getType() == 4)</span>
+            {
+<span style = "background-color:#dfd">                printf("¿£ÁøÀÌ °íÀå³ªÀÖ½À´Ï´Ù.\n");
+                printf("ÀÚµ¿Â÷°¡ ¿òÁ÷ÀÌÁö ¾Ê½À´Ï´Ù.\n");
+            }</span>
+            else
+            {
+<span style = "background-color:#dfd">                printf("Car Type : %s\n", car-&gt;getName().c_str());
+                printf("Engine : %s\n", car-&gt;mEngine-&gt;getName().c_str());
+                printf("Brake System : %s\n", car-&gt;mBrake-&gt;getName().c_str());
+                printf("SteeringSystem : %s\n", car-&gt;mSteering-&gt;getName().c_str());
+                printf("ÀÚµ¿Â÷°¡ µ¿ÀÛµË´Ï´Ù.\n");</span>
+            }
+        }
+<span style = "background-color:#dfd">    }</span>
+
+    void testProducedCar()
+<span style = "background-color:#dfd">    {
+        car-&gt;isValid(1);
+    }</span>
+
+};</pre>
+        <hr />
+        <table width="100%">
+            <thead>
+                <tr>
+                    <th align="center">
+                        <small>Generated by</small>
+                        <a href="https://github.com/OpenCppCoverage/OpenCppCoverage/releases">
+                            <strong>OpenCppCoverage (Version: 0.9.9.0)</strong>
+                        </a>
+                    </th>
+                </tr>
+            </thead>
+        </table>
+    </body>
+</html>

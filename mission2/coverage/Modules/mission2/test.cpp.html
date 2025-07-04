@@ -1,0 +1,333 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+        <meta charset="utf-8"/>
+	    <title>test.cpp</title>
+	    <link href="../../third-party/google-code-prettify/prettify-CppCoverage.css" type="text/css" rel="stylesheet" />
+	    <script type="text/javascript" src="../../third-party/google-code-prettify/prettify.js"></script>
+	</head>
+    <body onload="prettyPrint()">
+        <h4></h4>
+        <pre class="prettyprint lang-cpp linenums">
+#include "gmock/gmock.h"
+#include "question.cpp"
+
+//steering
+<span style = "background-color:#dfd">TEST(Steering, BoschSteering) {</span>
+	SteeringFactory sf;
+<span style = "background-color:#dfd">	ISteering* steering = sf.createSteering(BOSCH_S);
+	EXPECT_EQ(BOSCH_S, steering-&gt;getType());
+}
+TEST(Steering, MobisSteering) {</span>
+	SteeringFactory sf;
+<span style = "background-color:#dfd">	ISteering* steering = sf.createSteering(MOBIS);
+	EXPECT_EQ(MOBIS, steering-&gt;getType());
+}</span>
+
+//engine
+<span style = "background-color:#dfd">TEST(Engine, GmEngine) {</span>
+	EngineFactory ef;
+<span style = "background-color:#dfd">	IEngine* engine = ef.createEngine(GM);
+	EXPECT_EQ(GM, engine-&gt;getType());
+}
+TEST(Engine, ToyotaEngine) {</span>
+	EngineFactory ef;
+<span style = "background-color:#dfd">	IEngine* engine = ef.createEngine(TOYOTA);
+	EXPECT_EQ(TOYOTA, engine-&gt;getType());
+}
+TEST(Engine, WiaEngine) {</span>
+	EngineFactory ef;
+<span style = "background-color:#dfd">	IEngine* engine = ef.createEngine(WIA);
+	EXPECT_EQ(WIA, engine-&gt;getType());
+}
+TEST(Engine, BreakEngine) {</span>
+	EngineFactory ef;
+<span style = "background-color:#dfd">	IEngine* engine = ef.createEngine(4);
+	EXPECT_EQ(4, engine-&gt;getType());
+}</span>
+
+//brake
+<span style = "background-color:#dfd">TEST(Brake, GmEngine) {</span>
+	BrakeFactory bf;
+<span style = "background-color:#dfd">	IBrake* brake = bf.createBrake(MANDO);
+	EXPECT_EQ(MANDO, brake-&gt;getType());
+}
+TEST(Brake, ToyotaEngine) {</span>
+	BrakeFactory bf;
+<span style = "background-color:#dfd">	IBrake* brake = bf.createBrake(CONTINENTAL);
+	EXPECT_EQ(CONTINENTAL, brake-&gt;getType());
+}
+TEST(Brake, WiaEngine) {</span>
+	BrakeFactory bf;
+<span style = "background-color:#dfd">	IBrake* brake = bf.createBrake(BOSCH_B);
+	EXPECT_EQ(BOSCH_B, brake-&gt;getType());
+}</span>
+
+//car
+<span style = "background-color:#dfd">TEST(Car, Sedan) {</span>
+	CarFactory cf;
+<span style = "background-color:#dfd">	ICar* car = cf.createCar(SEDAN);
+	EXPECT_EQ(MANDO, car-&gt;getType());
+}
+TEST(Car, Suv) {</span>
+	CarFactory cf;
+<span style = "background-color:#dfd">	ICar* car = cf.createCar(SUV);
+	EXPECT_EQ(CONTINENTAL, car-&gt;getType());
+}
+TEST(Car, Truck) {</span>
+	CarFactory cf;
+<span style = "background-color:#dfd">	ICar* car = cf.createCar(TRUCK);
+	EXPECT_EQ(BOSCH_B, car-&gt;getType());
+}
+TEST(Car, isValidSedanFalse) {
+	ICar* car = new Sedan();
+	car-&gt;setBrake(new ContinentalBrake());
+	int ret = car-&gt;isValid(1);
+	EXPECT_EQ(ret, false);
+}
+TEST(Car, isValidSUVFalse) {
+	ICar* car = new Suv();
+	car-&gt;setEngine(new ToyotaEngine());
+	int ret = car-&gt;isValid(1);
+	EXPECT_EQ(ret, false);
+}
+TEST(Car, isValidTruckFalseEngine) {
+	ICar* car = new Truck();
+	car-&gt;setEngine(new WiaEngine());
+	int ret = car-&gt;isValid(1);
+	EXPECT_EQ(ret, false);
+}
+TEST(Car, isValidTruckFalseBrake) {
+	ICar* car = new Truck();
+	car-&gt;setEngine(new ToyotaEngine());
+	car-&gt;setBrake(new MandoBrake());
+	int ret = car-&gt;isValid(1);
+	EXPECT_EQ(ret, false);
+}
+TEST(Car, isValidFalseBosch) {
+	ICar* car = new Sedan();
+	car-&gt;setBrake(new BoschBrake());
+	car-&gt;setSteering(new MobisSteering());
+	int ret = car-&gt;isValid(1);
+	EXPECT_EQ(ret, false);
+}
+TEST(Car, isValidTrue) {
+	ICar* car = new Sedan();
+	car-&gt;setBrake(new BoschBrake());
+	car-&gt;setSteering(new BoschSteering());
+	int ret = car-&gt;isValid(1);
+	EXPECT_EQ(ret, true);
+}</span>
+
+//Question
+<span style = "background-color:#dfd">TEST(Question, getAndParseCommand) {
+	Question q;
+	q.getAndParseCommand();
+	int ret = strlen(q.buf);
+	EXPECT_EQ(ret, 1);
+}</span>
+
+<span style = "background-color:#dfd">TEST(Question, isExitCommandTrue) {
+	Question q;
+	q.buf[0] = 'e';
+	q.buf[1] = 'x';
+	q.buf[2] = 'i';
+	q.buf[3] = 't';
+	bool ret = q.isExitCommand();
+	EXPECT_TRUE(ret);
+}</span>
+
+<span style = "background-color:#dfd">TEST(Question, isExitCommandFalse) {
+	Question q;
+	bool ret = q.isExitCommand();
+	EXPECT_FALSE(ret);
+}</span>
+
+<span style = "background-color:#dfd">TEST(Question, getAnswerCheckIsValidTrue) {
+	Question q;
+	q.buf[0] = '0';
+	bool ret = q.getAnwerAndCheckIsValid();
+	EXPECT_TRUE(ret);
+}</span>
+
+<span style = "background-color:#dfd">TEST(Question, getAnswerCheckIsValidFalse) {
+	Question q;
+	q.buf[0] = 'k';
+	bool ret = q.getAnwerAndCheckIsValid();
+	EXPECT_FALSE(ret);
+}</span>
+
+<span style = "background-color:#dfd">TEST(Question, isValidStepAndAnswerFalseByCar) {
+	Question q;
+	q.step = CarType_Q;
+	q.answer = 4;
+	bool ret = q.isValidStepAndAnswer();
+	EXPECT_FALSE(ret);
+}</span>
+
+<span style = "background-color:#dfd">TEST(Question, isValidStepAndAnswerFalseByEngine) {
+	Question q;
+	q.step = Engine_Q;
+	q.answer = 5;
+	bool ret = q.isValidStepAndAnswer();
+	EXPECT_FALSE(ret);
+}</span>
+
+<span style = "background-color:#dfd">TEST(Question, isValidStepAndAnswerFalseByBrake) {
+	Question q;
+	q.step = brakeSystem_Q;
+	q.answer = 4;
+	bool ret = q.isValidStepAndAnswer();
+	EXPECT_FALSE(ret);
+}</span>
+
+<span style = "background-color:#dfd">TEST(Question, isValidStepAndAnswerFalseBySteering) {
+	Question q;
+	q.step = SteeringSystem_Q;
+	q.answer = 4;
+	bool ret = q.isValidStepAndAnswer();
+	EXPECT_FALSE(ret);
+}</span>
+
+<span style = "background-color:#dfd">TEST(Question, isValidStepAndAnswerFalseByRunTest) {
+	Question q;
+	q.step = Run_Test;
+	q.answer = 4;
+	bool ret = q.isValidStepAndAnswer();
+	EXPECT_FALSE(ret);
+}</span>
+
+<span style = "background-color:#dfd">TEST(Question, isValidStepAndAnswerTrue) {
+	Question q;
+	q.step = Run_Test;
+	q.answer = 1;
+	bool ret = q.isValidStepAndAnswer();
+	EXPECT_TRUE(ret);
+}</span>
+
+<span style = "background-color:#dfd">TEST(Question, updateStepAfterRunCarStart) {
+	Question q;
+	q.step = Run_Test;
+	q.answer = 0;
+	q.updateStepAfterRun();
+	EXPECT_EQ(q.step, CarType_Q);
+}</span>
+
+<span style = "background-color:#dfd">TEST(Question, updateStepAfterRunCarBack) {
+	Question q;
+	q.step = Engine_Q;
+	q.answer = 0;
+	q.updateStepAfterRun();
+	EXPECT_EQ(q.step, CarType_Q);
+}</span>
+
+<span style = "background-color:#dfd">TEST(Question, updateStepAfterRunCar) {
+	Question q;
+	q.step = CarType_Q;
+	q.answer = 1;
+	q.updateStepAfterRun();
+	EXPECT_EQ(q.step, Engine_Q);
+}</span>
+
+<span style = "background-color:#dfd">TEST(Question, updateStepAfterRunEngine) {
+	Question q;
+	q.car = new Sedan();
+	q.step = Engine_Q;
+	q.answer = 1;
+	q.updateStepAfterRun();
+	EXPECT_EQ(q.step, brakeSystem_Q);
+}</span>
+
+<span style = "background-color:#dfd">TEST(Question, updateStepAfterRunEngineBreak) {
+	Question q;
+	q.car = new Sedan();
+	q.step = Engine_Q;
+	q.answer = 4;
+	q.updateStepAfterRun();
+	EXPECT_EQ(q.step, brakeSystem_Q);
+}</span>
+
+<span style = "background-color:#dfd">TEST(Question, updateStepAfterRunBrake) {
+	Question q;
+	q.car = new Sedan();
+	q.step = brakeSystem_Q;
+	q.answer = 1;
+	q.updateStepAfterRun();
+	EXPECT_EQ(q.step, SteeringSystem_Q);
+}</span>
+
+<span style = "background-color:#dfd">TEST(Question, updateStepAfterRunSteering) {
+	Question q;
+	q.car = new Sedan();
+	q.step = SteeringSystem_Q;
+	q.answer = 1;
+	q.updateStepAfterRun();
+	EXPECT_EQ(q.step, Run_Test);
+}</span>
+
+<span style = "background-color:#dfd">TEST(Question, getStep) {
+	Question q;
+	q.step = CarType_Q;
+	int ret = q.getStep();
+	EXPECT_EQ(ret, CarType_Q);
+}</span>
+
+<span style = "background-color:#dfd">TEST(Question, updateStepAfterRunRunFail) {
+	Question q;
+	q.car = new Sedan();
+	q.car-&gt;setBrake(new ContinentalBrake());
+	q.step = Run_Test;
+	q.answer = 1;
+	q.updateStepAfterRun();
+}</span>
+
+<span style = "background-color:#dfd">TEST(Question, updateStepAfterRunRunFailByEngine) {
+	Question q;
+	q.car = new Sedan();
+	q.car-&gt;setBrake(new BoschBrake());
+	q.car-&gt;setEngine(new BreakEngine());
+	q.car-&gt;setSteering(new BoschSteering());
+	q.step = Run_Test;
+	q.answer = 1;
+	q.updateStepAfterRun();
+	EXPECT_EQ(q.step, Run_Test);
+}</span>
+
+<span style = "background-color:#dfd">TEST(Question, updateStepAfterRunRunSuccess) {
+	Question q;
+	q.car = new Sedan();
+	q.car-&gt;setBrake(new BoschBrake());
+	q.car-&gt;setEngine(new ToyotaEngine());
+	q.car-&gt;setSteering(new BoschSteering());
+	q.step = Run_Test;
+	q.answer = 1;
+	q.updateStepAfterRun();
+	EXPECT_EQ(q.step, Run_Test);
+}</span>
+
+<span style = "background-color:#dfd">TEST(Question, updateStepAfterRunTest) {
+	Question q;
+	q.car = new Sedan();
+	q.car-&gt;setBrake(new BoschBrake());
+	q.car-&gt;setEngine(new ToyotaEngine());
+	q.car-&gt;setSteering(new BoschSteering());
+	q.step = Run_Test;
+	q.answer = 2;
+	q.updateStepAfterRun();
+	EXPECT_EQ(q.step, Run_Test);
+}</span></pre>
+        <hr />
+        <table width="100%">
+            <thead>
+                <tr>
+                    <th align="center">
+                        <small>Generated by</small>
+                        <a href="https://github.com/OpenCppCoverage/OpenCppCoverage/releases">
+                            <strong>OpenCppCoverage (Version: 0.9.9.0)</strong>
+                        </a>
+                    </th>
+                </tr>
+            </thead>
+        </table>
+    </body>
+</html>

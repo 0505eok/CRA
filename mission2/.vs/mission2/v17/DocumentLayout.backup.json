@@ -3,8 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\User\\source\\repos\\mission2\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{9410E20B-63BA-44AF-A3B3-601CC21DCFB1}|mission2\\mission2.vcxproj|C:\\Users\\User\\source\\repos\\mission2\\mission2\\car.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{9410E20B-63BA-44AF-A3B3-601CC21DCFB1}|mission2\\mission2.vcxproj|solutionrelative:mission2\\car.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{9410E20B-63BA-44AF-A3B3-601CC21DCFB1}|mission2\\mission2.vcxproj|C:\\Users\\User\\source\\repos\\mission2\\mission2\\question.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{9410E20B-63BA-44AF-A3B3-601CC21DCFB1}|mission2\\mission2.vcxproj|solutionrelative:mission2\\question.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9410E20B-63BA-44AF-A3B3-601CC21DCFB1}|mission2\\mission2.vcxproj|C:\\Users\\User\\source\\repos\\mission2\\mission2\\test.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{9410E20B-63BA-44AF-A3B3-601CC21DCFB1}|mission2\\mission2.vcxproj|solutionrelative:mission2\\test.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{9410E20B-63BA-44AF-A3B3-601CC21DCFB1}|mission2\\mission2.vcxproj|C:\\Users\\User\\source\\repos\\mission2\\mission2\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
@@ -15,16 +19,20 @@
       "RelativeMoniker": "D:0:0:{9410E20B-63BA-44AF-A3B3-601CC21DCFB1}|mission2\\mission2.vcxproj|solutionrelative:mission2\\headers.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{9410E20B-63BA-44AF-A3B3-601CC21DCFB1}|mission2\\mission2.vcxproj|C:\\Users\\User\\source\\repos\\mission2\\mission2\\car.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{9410E20B-63BA-44AF-A3B3-601CC21DCFB1}|mission2\\mission2.vcxproj|solutionrelative:mission2\\car.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9410E20B-63BA-44AF-A3B3-601CC21DCFB1}|mission2\\mission2.vcxproj|C:\\Users\\User\\source\\repos\\mission2\\mission2\\engine.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{9410E20B-63BA-44AF-A3B3-601CC21DCFB1}|mission2\\mission2.vcxproj|solutionrelative:mission2\\engine.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{9410E20B-63BA-44AF-A3B3-601CC21DCFB1}|mission2\\mission2.vcxproj|C:\\Users\\User\\source\\repos\\mission2\\mission2\\steering.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{9410E20B-63BA-44AF-A3B3-601CC21DCFB1}|mission2\\mission2.vcxproj|solutionrelative:mission2\\steering.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{9410E20B-63BA-44AF-A3B3-601CC21DCFB1}|mission2\\mission2.vcxproj|C:\\Users\\User\\source\\repos\\mission2\\mission2\\brake.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{9410E20B-63BA-44AF-A3B3-601CC21DCFB1}|mission2\\mission2.vcxproj|solutionrelative:mission2\\brake.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9410E20B-63BA-44AF-A3B3-601CC21DCFB1}|mission2\\mission2.vcxproj|C:\\Users\\User\\source\\repos\\mission2\\mission2\\engine.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{9410E20B-63BA-44AF-A3B3-601CC21DCFB1}|mission2\\mission2.vcxproj|solutionrelative:mission2\\engine.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
   "DocumentGroupContainers": [
@@ -39,25 +47,38 @@
             {
               "$type": "Document",
               "DocumentIndex": 1,
+              "Title": "test.cpp",
+              "DocumentMoniker": "C:\\Users\\User\\source\\repos\\mission2\\mission2\\test.cpp",
+              "RelativeDocumentMoniker": "mission2\\test.cpp",
+              "ToolTip": "C:\\Users\\User\\source\\repos\\mission2\\mission2\\test.cpp",
+              "RelativeToolTip": "mission2\\test.cpp",
+              "ViewState": "AgIAAGYAAAAAAAAAAAAAAHEAAAAYAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-07-04T05:11:36.128Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "main.cpp",
               "DocumentMoniker": "C:\\Users\\User\\source\\repos\\mission2\\mission2\\main.cpp",
               "RelativeDocumentMoniker": "mission2\\main.cpp",
               "ToolTip": "C:\\Users\\User\\source\\repos\\mission2\\mission2\\main.cpp",
               "RelativeToolTip": "mission2\\main.cpp",
-              "ViewState": "AgIAABEBAAAAAAAAAAAhwEMBAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2025-07-04T01:23:02.797Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "headers.h",
               "DocumentMoniker": "C:\\Users\\User\\source\\repos\\mission2\\mission2\\headers.h",
               "RelativeDocumentMoniker": "mission2\\headers.h",
               "ToolTip": "C:\\Users\\User\\source\\repos\\mission2\\mission2\\headers.h",
               "RelativeToolTip": "mission2\\headers.h",
-              "ViewState": "AgIAABUAAAAAAAAAAAAAACoAAAACAAAAAAAAAA==",
+              "ViewState": "AgIAABIAAAAAAAAAAAAhwCAAAAAOAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2025-07-04T03:42:13.252Z",
               "EditorCaption": ""
@@ -66,30 +87,30 @@
         },
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 4,
               "Title": "car.cpp",
               "DocumentMoniker": "C:\\Users\\User\\source\\repos\\mission2\\mission2\\car.cpp",
               "RelativeDocumentMoniker": "mission2\\car.cpp",
               "ToolTip": "C:\\Users\\User\\source\\repos\\mission2\\mission2\\car.cpp",
               "RelativeToolTip": "mission2\\car.cpp",
-              "ViewState": "AgIAADEAAAAAAAAAAADwv0UAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAAACgAAAAUAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2025-07-04T01:37:29.15Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 6,
               "Title": "steering.cpp",
               "DocumentMoniker": "C:\\Users\\User\\source\\repos\\mission2\\mission2\\steering.cpp",
               "RelativeDocumentMoniker": "mission2\\steering.cpp",
               "ToolTip": "C:\\Users\\User\\source\\repos\\mission2\\mission2\\steering.cpp",
               "RelativeToolTip": "mission2\\steering.cpp",
-              "ViewState": "AgIAAAYAAAAAAAAAAADwvx8AAAAeAAAAAAAAAA==",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAB8AAAAbAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2025-07-04T03:29:48.173Z",
               "EditorCaption": ""
@@ -102,22 +123,35 @@
               "RelativeDocumentMoniker": "mission2\\engine.cpp",
               "ToolTip": "C:\\Users\\User\\source\\repos\\mission2\\mission2\\engine.cpp",
               "RelativeToolTip": "mission2\\engine.cpp",
-              "ViewState": "AgIAACEAAAAAAAAAAAAAADYAAAAZAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2025-07-04T02:12:02.38Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 7,
               "Title": "brake.cpp",
               "DocumentMoniker": "C:\\Users\\User\\source\\repos\\mission2\\mission2\\brake.cpp",
               "RelativeDocumentMoniker": "mission2\\brake.cpp",
               "ToolTip": "C:\\Users\\User\\source\\repos\\mission2\\mission2\\brake.cpp",
               "RelativeToolTip": "mission2\\brake.cpp",
-              "ViewState": "AgIAABIAAAAAAAAAAAAAACEAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2025-07-04T02:28:59.641Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "question.cpp",
+              "DocumentMoniker": "C:\\Users\\User\\source\\repos\\mission2\\mission2\\question.cpp",
+              "RelativeDocumentMoniker": "mission2\\question.cpp",
+              "ToolTip": "C:\\Users\\User\\source\\repos\\mission2\\mission2\\question.cpp",
+              "RelativeToolTip": "mission2\\question.cpp",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAA8AAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-07-04T05:32:24.085Z",
               "EditorCaption": ""
             }
           ]

@@ -2,4 +2,8 @@ C:\Users\User\source\repos\mission2\mission2\brake.cpp;C:\Users\User\source\repo
 C:\Users\User\source\repos\mission2\mission2\engine.cpp;C:\Users\User\source\repos\mission2\mission2\x64\Release\engine.obj
 C:\Users\User\source\repos\mission2\mission2\main.cpp;C:\Users\User\source\repos\mission2\mission2\x64\Release\main.obj
 C:\Users\User\source\repos\mission2\mission2\car.cpp;C:\Users\User\source\repos\mission2\mission2\x64\Release\car.obj
+C:\Users\User\source\repos\mission2\mission2\question.cpp;C:\Users\User\source\repos\mission2\mission2\x64\Release\question.obj
 C:\Users\User\source\repos\mission2\mission2\steering.cpp;C:\Users\User\source\repos\mission2\mission2\x64\Release\steering.obj
+C:\Users\User\source\repos\mission2\mission2\test.cpp;C:\Users\User\source\repos\mission2\mission2\x64\Release\test.obj
+C:\Users\User\source\repos\mission2\packages\gmock.1.11.0\lib\native\src\gtest\gtest-all.cc;C:\Users\User\source\repos\mission2\mission2\x64\Release\gtest-all.obj
+C:\Users\User\source\repos\mission2\packages\gmock.1.11.0\lib\native\src\gmock\gmock-all.cc;C:\Users\User\source\repos\mission2\mission2\x64\Release\gmock-all.obj
